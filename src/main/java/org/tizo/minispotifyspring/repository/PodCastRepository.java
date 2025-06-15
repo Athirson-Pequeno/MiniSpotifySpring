@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface PodCastRepository extends JpaRepository<Podcast, Integer> {
     List<Podcast> findAllByArtistaContains(String artista);
-
     List<Podcast> findAllByTituloContains(String titulo);
 }

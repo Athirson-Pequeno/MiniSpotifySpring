@@ -7,7 +7,5 @@ import org.tizo.minispotifyspring.model.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
-    Usuario findByEmailAndSenha(@NotBlank String email, @NotBlank String senha);
-
     Usuario findByEmail(@NotBlank String email);
 }

@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public class PlaylistService {
 
-
     private final PlaylistRepository playlistRepository;
     private final MidiaRepository midiaRepository;
 
@@ -25,7 +24,8 @@ public class PlaylistService {
     }
 
     public List<PlaylistDTO> findByUsuario(Usuario usuario) {
-        return playlistRepository.findAllByUsuario(usuario).stream()
+        return playlistRepository.findAllByUsuario(usuario)
+                .stream()
                 .map(playlist -> new PlaylistDTO(
                         playlist.getId(),
                         playlist.getUsuario().getNome(),
@@ -40,11 +40,14 @@ public class PlaylistService {
         playlist.setUsuario(usuario);
 
         playlistRepository.save(playlist);
-        return new PlaylistDTO(playlist.getId(), playlist.getUsuario().getNome(), playlist.getTitulo(), playlist.getMidias());
+        return new PlaylistDTO(
+                playlist.getId(),
+                playlist.getUsuario().getNome(),
+                playlist.getTitulo(),
+                playlist.getMidias());
     }
 
     public Playlist getPlaylistById(Integer id) {
-
         return playlistRepository.findPlaylistById(id);
     }
 

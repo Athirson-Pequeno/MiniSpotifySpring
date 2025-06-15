@@ -3,9 +3,6 @@ package org.tizo.minispotifyspring.util;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.tizo.minispotifyspring.repository.UsuarioRepository;
-import org.tizo.minispotifyspring.service.UsuarioService;
 
 import java.security.Key;
 import java.util.Date;

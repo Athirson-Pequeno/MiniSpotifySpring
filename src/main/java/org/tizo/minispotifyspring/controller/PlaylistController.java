@@ -29,7 +29,8 @@ public class PlaylistController {
     }
 
     @PostMapping
-    public PlaylistDTO createPlaylist(@RequestBody TituloPlaylistDTO tituloPlaylistDTO, @RequestHeader("Authorization") String authHeader) {
+    public PlaylistDTO createPlaylist(@RequestBody TituloPlaylistDTO tituloPlaylistDTO,
+                                      @RequestHeader("Authorization") String authHeader) {
         return playlistService.createPlaylist(tituloPlaylistDTO.titulo(), buscarUsuarioPorToken(authHeader));
     }
 

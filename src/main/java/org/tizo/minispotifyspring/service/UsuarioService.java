@@ -33,6 +33,7 @@ public class UsuarioService {
         usuarioSalvo.setNome(usuario.nome());
         usuarioSalvo.setEmail(usuario.email());
         usuarioSalvo.setSenha(passwordEncoder.encode(usuario.senha()));
+
         usuarioRepository.save(usuarioSalvo);
 
         LoginDTO loginDTO = new LoginDTO(usuario.senha(), usuario.email());
@@ -41,7 +42,9 @@ public class UsuarioService {
     }
 
     public UsuarioAutenticadoDTO autenticar(LoginDTO loginDTO) {
+
         Usuario usuario = usuarioRepository.findByEmail(loginDTO.email());
+
         if (usuario != null && passwordEncoder.matches(loginDTO.senha(), usuario.getSenha())) {
             String jwt = JwtUtil.gerarToken(usuario.getEmail());
             return new UsuarioAutenticadoDTO(usuario.getEmail(), jwt);

@@ -27,7 +27,6 @@ public class Playlist {
     private List<Midia> midias = new ArrayList<>();
     private String titulo;
 
-
     @ManyToOne
     private Usuario usuario;
 

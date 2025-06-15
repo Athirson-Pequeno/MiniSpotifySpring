@@ -40,8 +40,8 @@ public class AudioBookController {
     }
 
     @PostMapping
-    public AudioBook addAudioBook(@RequestBody AudioBook musica) {
-        return audioBookService.save(musica);
+    public AudioBook addAudioBook(@RequestBody AudioBook audioBook) {
+        return audioBookService.save(audioBook);
     }
 
     @DeleteMapping(value = "/{id}")

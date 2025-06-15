@@ -22,12 +22,12 @@ public class AudioBookService {
         return audioBookRepository.findAll();
     }
 
-    public AudioBook findById(Integer id) {
-        return audioBookRepository.findById(id).get();
-    }
-
     public AudioBook save(AudioBook audioBook) {
         return audioBookRepository.save(audioBook);
+    }
+
+    public AudioBook findById(Integer id) {
+        return audioBookRepository.findById(id).orElseThrow(() -> new RuntimeException("AudioBook não encontrado"));
     }
 
     public void delete(AudioBook audioBook) {
@@ -35,7 +35,7 @@ public class AudioBookService {
     }
 
     public void delete(Integer id) {
-        audioBookRepository.deleteById(id);
+        this.delete(findById(id));
     }
 
     public List<AudioBook> findByArtista(String artista) {

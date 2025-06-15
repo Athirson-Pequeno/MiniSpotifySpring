@@ -27,9 +27,6 @@ public class MusicaService {
     }
 
     public Musica save(Musica musica) {
-        Musica nova = new Musica();
-        nova.setGenero(Genero.CLASSICA);  // se der erro aqui, é sinal de problema na importação ou build
-
         return musicaRepository.save(musica);
     }
 
