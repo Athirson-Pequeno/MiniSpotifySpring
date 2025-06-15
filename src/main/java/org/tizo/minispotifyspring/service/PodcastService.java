@@ -22,7 +22,7 @@ public class PodcastService {
     }
 
     public Podcast findById(Integer id) {
-        return podcastRepository.findById(id).get();
+        return podcastRepository.findById(id).orElseThrow(() -> new RuntimeException("Podcast não encontrado"));
     }
 
     public Podcast save(Podcast podcast) {

@@ -48,7 +48,7 @@ public class PlaylistService {
     }
 
     public Playlist getPlaylistById(Integer id) {
-        return playlistRepository.findPlaylistById(id);
+        return playlistRepository.findById(id).orElseThrow(() -> new RuntimeException("Playlist não encontrada"));
     }
 
     public boolean deletePlaylistById(Integer playlistId, Usuario usuario) {

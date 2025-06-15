@@ -23,7 +23,7 @@ public class MusicaService {
     }
 
     public Musica findById(Integer id) {
-        return musicaRepository.findById(id).get();
+        return musicaRepository.findById(id).orElseThrow(() -> new RuntimeException("Música não encontrada"));
     }
 
     public Musica save(Musica musica) {
