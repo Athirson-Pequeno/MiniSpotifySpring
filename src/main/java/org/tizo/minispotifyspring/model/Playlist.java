@@ -5,14 +5,13 @@ import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString
 @Entity
 public class Playlist {
 
@@ -32,4 +31,23 @@ public class Playlist {
     @ManyToOne
     private Usuario usuario;
 
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Playlist playlist)) return false;
+        return Objects.equals(id, playlist.id) && Objects.equals(midias, playlist.midias) && Objects.equals(titulo, playlist.titulo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, midias, titulo);
+    }
+
+    @Override
+    public String toString() {
+        return "Playlist{" +
+                "titulo='" + titulo + '\'' +
+                ", midias=" + midias +
+                ", id=" + id +
+                '}';
+    }
 }

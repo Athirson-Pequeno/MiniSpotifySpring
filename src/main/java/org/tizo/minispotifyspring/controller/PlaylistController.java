@@ -22,7 +22,6 @@ public class PlaylistController {
     private final PlaylistService playlistService;
     private final UsuarioService usuarioService;
 
-
     @Autowired
     public PlaylistController(PlaylistService playlistService, UsuarioService usuarioService) {
         this.playlistService = playlistService;

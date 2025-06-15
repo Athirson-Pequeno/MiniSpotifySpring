@@ -23,7 +23,6 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/usuario/*").permitAll()
                         .anyRequest().permitAll()
                 )
                 .httpBasic(withDefaults());
